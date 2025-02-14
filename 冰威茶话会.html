@@ -21,13 +21,13 @@
             text-align: center;
             margin-top: 150px;
             font-size: 50px;
-            text-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 30px #00f;
+            text-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
             animation: flicker 1.5s infinite alternate;
             position: relative;
             z-index: 1;
             transition: all 0.3s ease;
-            color: #00f;
-            will-change: transform; /* 提前告知浏览器 transform 属性即将变化 */
+            color: #FF0000;
+            will-change: transform;
         }
 
         h1:hover {
@@ -38,14 +38,14 @@
         @keyframes flicker {
             0%, 18%, 22%, 25%, 53%, 57%, 100% {
                 text-shadow:
-                    0 0 4px #00f,
-                    0 0 11px #00f,
-                    0 0 19px #00f,
-                    0 0 40px #00f,
-                    0 0 80px #00f,
-                    0 0 90px #00f,
-                    0 0 100px #00f,
-                    0 0 150px #00f;
+                    0 0 4px #FF0000,
+                    0 0 11px #FF0000,
+                    0 0 19px #FF0000,
+                    0 0 40px #FF0000,
+                    0 0 80px #FF0000,
+                    0 0 90px #FF0000,
+                    0 0 100px #FF0000,
+                    0 0 150px #FF0000;
             }
 
             20%, 24%, 55% {
@@ -72,7 +72,7 @@
             color: #0f0;
             animation: stream 5s linear infinite, flicker-code 1s infinite alternate;
             opacity: 0.8;
-            will-change: top, opacity; /* 提前告知浏览器 top 和 opacity 属性即将变化 */
+            will-change: top, opacity;
         }
 
         /* 代码流流动动画 */
@@ -91,15 +91,19 @@
             0% {
                 opacity: 0.2;
             }
+
             25% {
                 opacity: 0.4;
             }
+
             50% {
                 opacity: 0.8;
             }
+
             75% {
                 opacity: 0.4;
             }
+
             100% {
                 opacity: 0.2;
             }
@@ -157,7 +161,11 @@
                 const streamLength = Math.floor(Math.random() * 20) + 10;
                 for (let j = 0; j < streamLength; j++) {
                     const randomChar = codeCharacters.charAt(Math.floor(Math.random() * codeCharacters.length));
-                    codeString += randomChar + '<br>';
+                    if (j === streamLength - 1) {
+                        codeString += `<span style="text-shadow: 0 0 5px ${randomColor}, 0 0 10px ${randomColor}, 0 0 15px ${randomColor};">${randomChar}</span><br>`;
+                    } else {
+                        codeString += randomChar + '<br>';
+                    }
                 }
                 stream.innerHTML = codeString;
                 codeBackground.appendChild(stream);
