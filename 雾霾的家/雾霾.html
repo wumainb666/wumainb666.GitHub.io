@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>雾霾的家</title>
+    <style>
+        body {
+            /* 修改为实际路径 */
+            background-image: url("static/底图.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+            background-size: 100% 100%;
+            -webkit-background-size: 100% 100%;
+            margin: 0;
+            height: 100vh;
+        }
+
+        /* 黑客代码样式 */
+      .hacker-code {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* 确保代码在其他元素之上 */
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            overflow: hidden;
+            animation: flowDown linear infinite 2s; /* 加快代码流动速度 */
+        }
+
+        @keyframes flowDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(100%);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            z-index: 2; /* 确保标题在代码之上 */
+        }
+
+        ul {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            z-index: 2; /* 确保列表在代码之上 */
+        }
+
+        /* 修改.ps-text 样式，加快闪烁速度 */
+      .ps-text {
+            font-size: 2em;
+            color: gold;
+            text-align: center;
+            text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 30px gold;
+            animation: blinkGradient 1s ease-in-out infinite alternate;
+            z-index: 2; /* 确保文本在代码之上 */
+        }
+
+        @keyframes blinkGradient {
+            0% {
+                color: gold;
+                text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 30px gold;
+            }
+            100% {
+                color: green;
+                text-shadow: 0 0 10px green, 0 0 20px green, 0 0 30px green;
+            }
+        }
+
+       .image-container {
+            text-align: center;
+            margin: 20px 0;
+            z-index: 2; /* 确保图片在代码之上 */
+        }
+
+       .image-container img {
+            /* 修改为实际路径 */
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* BGM 开关样式，调整到最小 */
+        #bgm-switch {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1em;
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            z-index: 2; /* 确保按钮在代码之上 */
+        }
+
+        /* 全屏按钮样式 */
+        #fullscreen-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1em;
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            z-index: 2; /* 确保按钮在代码之上 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 全屏按钮 -->
+    <button id="fullscreen-button" onclick="toggleFullscreen()">全屏</button>
+
+    <!-- 黑客代码 -->
+    <div class="hacker-code">
+        function startHacking() {<br>
+        &nbsp;&nbsp;let target = "example.com";<br>
+        &nbsp;&nbsp;console.log("Target selected: " + target);<br>
+        &nbsp;&nbsp;for (let i = 0; i < 10; i++) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;let attempt = i + 1;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log("Attempt " + attempt + " to hack " + target);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (Math.random() > 0.8) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Success on attempt " + attempt);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Failed attempt " + attempt);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;}<br>
+        }<br>
+        startHacking();<br>
+        // Another code snippet<br>
+        const data = {<br>
+        &nbsp;&nbsp;name: "John Doe",<br>
+        &nbsp;&nbsp;age: 30,<br>
+        &nbsp;&nbsp;email: "johndoe@example.com"<br>
+        };<br>
+        console.log(data);<br>
+        // 新增代码片段 1
+        function calculateSum(a, b) {<br>
+        &nbsp;&nbsp;return a + b;<br>
+        }<br>
+        let result = calculateSum(5, 3);<br>
+        console.log("Sum: " + result);<br>
+        // 新增代码片段 2
+        class Person {<br>
+        &nbsp;&nbsp;constructor(name, age) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.age = age;<br>
+        &nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;introduce() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return `My name is ${this.name} and I'm ${this.age} years old.`;<br>
+        &nbsp;&nbsp;}<br>
+        }<br>
+        let person = new Person("Alice", 25);<br>
+        console.log(person.introduce());<br>
+        // 新增代码片段 3
+        function encryptData(data) {<br>
+        &nbsp;&nbsp;let encrypted = "";<br>
+        &nbsp;&nbsp;for (let i = 0; i < data.length; i++) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;encrypted += String.fromCharCode(data.charCodeAt(i) + 1);<br>
+        &nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;return encrypted;<br>
+        }<br>
+        let originalData = "sensitiveInfo";<br>
+        let encryptedData = encryptData(originalData);<br>
+        console.log("Encrypted data: " + encryptedData);<br>
+        // 新增代码片段 4
+        function decryptData(encrypted) {<br>
+        &nbsp;&nbsp;let decrypted = "";<br>
+        &nbsp;&nbsp;for (let i = 0; i < encrypted.length; i++) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;decrypted += String.fromCharCode(encrypted.charCodeAt(i) - 1);<br>
+        &nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;return decrypted;<br>
+        }<br>
+        let decryptedData = decryptData(encryptedData);<br>
+        console.log("Decrypted data: " + decryptedData);<br>
+        // 新增代码片段 5
+        function scanNetwork(ipRange) {<br>
+        &nbsp;&nbsp;for (let i = 1; i < 255; i++) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;let ip = ipRange + "." + i;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log("Scanning IP: " + ip);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;// 模拟扫描结果<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (Math.random() > 0.8) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Device found at " + ip);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;}<br>
+        }<br>
+        scanNetwork("192.168.1");<br>
+        // 新增代码片段 6: 简单的数组排序
+        function sortArray(arr) {
+            return arr.sort((a, b) => a - b);
+        }
+        let unsortedArray = [5, 3, 8, 1, 2];
+        let sortedArray = sortArray(unsortedArray);
+        console.log("Sorted array: " + sortedArray);<br>
+        // 新增代码片段 7: 递归计算阶乘
+        function factorial(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            }
+            return n * factorial(n - 1);
+        }
+        let factorialResult = factorial(5);
+        console.log("Factorial of 5: " + factorialResult);<br>
+        // 新增代码片段 8: 查找数组中的最大值
+        function findMax(arr) {
+            let max = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+        let numberArray = [12, 5, 18, 3, 9];
+        let maxNumber = findMax(numberArray);
+        console.log("Max number in array: " + maxNumber);<br>
+        // 新增代码片段 9: 字符串反转
+        function reverseString(str) {
+            return str.split('').reverse().join('');
+        }
+        let originalString = "hello";
+        let reversedString = reverseString(originalString);
+        console.log("Reversed string: " + reversedString);<br>
+        // 新增代码片段 10: 检查是否为质数
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+        let primeCheckNumber = 7;
+        console.log(primeCheckNumber + " is prime: " + isPrime(primeCheckNumber));<br>
+    </div>
+
+    <!-- 标题 -->
+    <h1>感谢陪伴</h1>
+
+    <!-- 列表 -->
+    <ul>
+        <li>这一路 ，认识了很多兄弟姐妹 都特别好</li>
+        <li>也从一开始什么都不会到现在这样</li>
+        <li>感谢我的老师</li>
+        <li>感谢我的好兄弟</li>
+        <li>感谢你们的支持，看重</li>
+        <li>感谢 ，是时候 奔赴现实生活了！</li>
+        <li>你们要天天开心 ，玩的越来越好！</li>
+    </ul>
+
+    <!-- 绿色闪耀字体 -->
+    <p class="ps-text">PS：报单继续可以报 我的传承一直流传！</p>
+
+    <!-- 头像 -->
+    <div class="image-container">
+        <!-- 修改为实际路径 -->
+        <img src="static/雾霾头像.jpg" alt="雾霾头像">
+    </div>
+
+    <!-- BGM 开关 -->
+    <button id="bgm-switch" onclick="toggleBGM()">开关 BGM</button>
+    <audio id="bgm" autoplay loop>
+        <!-- 修改为实际路径 -->
+        <source src="static/BGM.mp3" type="audio/mpeg">
+            你的浏览器不支持音频播放。
+        </source>
+    </audio>
+
+    <script>
+        function toggleBGM() {
+            var bgm = document.getElementById('bgm');
+            if (bgm.paused) {
+                bgm.play();
+            } else {
+                bgm.pause();
+            }
+        }
+
+        function toggleFullscreen() {
+            var elem = document.documentElement;
+            if (!document.fullscreenElement &&
+                !document.webkitFullscreenElement &&
+                !document.mozFullScreenElement &&
+                !document.msFullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.mozRequestFullScreen) {
+                    elem.mozRequestFullScreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
