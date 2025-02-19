@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冰威茶话会 望你仍在</title>
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #000;
+            color: #0f0;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* 标题样式 */
+        h1 {
+            text-align: center;
+            margin-top: 150px;
+            font-size: 50px;
+            text-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
+            animation: flicker 1.5s infinite alternate;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            color: #FF0000;
+            will-change: transform;
+        }
+
+        h1:hover {
+            transform: scale(1.1);
+        }
+
+        /* 闪烁动画 */
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                    0 0 4px #FF0000,
+                    0 0 11px #FF0000,
+                    0 0 19px #FF0000,
+                    0 0 40px #FF0000,
+                    0 0 80px #FF0000,
+                    0 0 90px #FF0000,
+                    0 0 100px #FF0000,
+                    0 0 150px #FF0000;
+            }
+
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        /* 黑客代码背景样式 */
+        #code-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .code-stream {
+            position: absolute;
+            top: -10px;
+            width: 1em;
+            font-size: 16px;
+            color: #0f0;
+            animation: stream 5s linear infinite, flicker-code 1s infinite alternate;
+            opacity: 0.8;
+            will-change: top, opacity;
+        }
+
+        /* 代码流流动动画 */
+        @keyframes stream {
+            from {
+                top: -10px;
+            }
+
+            to {
+                top: 100%;
+            }
+        }
+
+        /* 代码流闪烁动画，添加更多关键帧实现渐变亮度 */
+        @keyframes flicker-code {
+            0% {
+                opacity: 0.2;
+            }
+
+            25% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+
+            75% {
+                opacity: 0.4;
+            }
+
+            100% {
+                opacity: 0.2;
+            }
+        }
+
+        /* 手机格式适配 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 30px;
+                margin-top: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="code-background"></div>
+    <h1>冰威茶话会 望你仍在</h1>
+
+    <script>
+        // 根据窗口大小动态调整元素数量
+        function adjustElementCount() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const area = width * height;
+            const numStreams = Math.floor(area / 5000);
+            return { numStreams };
+        }
+
+        // 创建黑客代码背景
+        function createCodeBackground() {
+            const codeBackground = document.getElementById('code-background');
+            const codeCharacters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:\",./<>?';
+            const { numStreams } = adjustElementCount();
+
+            // 清空原有的代码流
+            codeBackground.innerHTML = '';
+
+            for (let i = 0; i < numStreams; i++) {
+                const stream = document.createElement('div');
+                stream.classList.add('code-stream');
+
+                // 提前生成随机数，减少重复计算
+                const randomLeft = Math.random() * 100 + '%';
+                const randomDuration = (Math.random() * 5 + 3) + 's';
+                const randomDelay = Math.random() * 5 + 's';
+                const randomColor = Math.random() < 0.2 ? '#fff' : '#0f0';
+
+                stream.style.left = randomLeft;
+                stream.style.animationDuration = randomDuration;
+                stream.style.animationDelay = randomDelay;
+                stream.style.color = randomColor;
+
+                let codeString = '';
+                const streamLength = Math.floor(Math.random() * 20) + 10;
+                for (let j = 0; j < streamLength; j++) {
+                    const randomChar = codeCharacters.charAt(Math.floor(Math.random() * codeCharacters.length));
+                    if (j === streamLength - 1) {
+                        codeString += `<span style="text-shadow: 0 0 5px ${randomColor}, 0 0 10px ${randomColor}, 0 0 15px ${randomColor};">${randomChar}</span><br>`;
+                    } else {
+                        codeString += randomChar + '<br>';
+                    }
+                }
+                stream.innerHTML = codeString;
+                codeBackground.appendChild(stream);
+            }
+        }
+
+        // 初始化元素
+        createCodeBackground();
+
+        // 窗口大小改变时重新调整元素数量
+        window.addEventListener('resize', () => {
+            createCodeBackground();
+        });
+    </script>
+</body>
+
+</html>
